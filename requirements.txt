@@ -1,0 +1,24 @@
+# BMO - desktop prototype dependencies (Python 3.12)
+# Install with:  py -3.12 -m pip install -r requirements.txt
+
+pygame==2.6.1
+
+# Offline Windows voice, and the fallback whenever the network is down.
+pyttsx3==2.99
+
+# Microsoft neural voices. This is what gives BMO its childlike voice.
+# Needs an internet connection; BMO falls back to pyttsx3 without one.
+edge-tts==7.3.1
+
+# Pulled in by pyttsx3 for the Windows SAPI5 voice. Pinned so the install is
+# reproducible; we never import them directly.
+comtypes==1.4.17
+pywin32==312
+
+# Tests use the standard library `unittest`, so nothing extra is needed to run
+# them. Later phases (AI, microphone, camera, robotics) will add dependencies
+# here one at a time, only after each one has been tested.
+#
+# Raspberry Pi note: pywin32 and comtypes are Windows-only. On a Pi, pyttsx3
+# uses eSpeak instead (`sudo apt install espeak`), and those two lines must be
+# left out. See README -> "Raspberry Pi differences".
